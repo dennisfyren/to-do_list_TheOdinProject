@@ -1,7 +1,13 @@
-import "./sidebar.js";
+import { updateDOM } from "./updateDOM.js";
+import { getItems } from "./storage.js";
+import { setItems } from "./storage.js";
 
-import {showSidebar} from "./sidebar.js";
-import {showContent} from "./content.js";
+getItems();
+setItems();
 
-showSidebar();
-showContent();
+updateDOM.content();
+updateDOM.sidebar();
+updateDOM.navbar();
+
+updateDOM.displayProjects();
+

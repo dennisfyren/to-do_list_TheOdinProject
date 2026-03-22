@@ -2,9 +2,10 @@ import Task from "./tasks.js";
 const contentBox = document.createElement("div");
 
 export default class Project {
-    constructor(title, description){
+    constructor(title, description, uuid){
         this.title = title;
         this.description = description;
+        this.uuid = uuid;
         this.tasks = [];
     }
     addTask(title, description, priority, dueDate){
