@@ -3,3 +3,204 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #dbeafe;
+  
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  
+  --border-color: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  
+  --priority-high: #ef4444;
+  --priority-medium: #f59e0b;
+  --priority-low: #10b981;
+}
+
+/* Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    
+    --accent-primary: #60a5fa;
+    --accent-hover: #3b82f6;
+    --accent-light: #1e3a5f;
+    
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    
+    --border-color: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+    
+    --priority-high: #f87171;
+    --priority-medium: #fbbf24;
+    --priority-low: #34d399;
+  }
+}
+
+/* Manual Dark Mode Toggle Class */
+.dark-mode {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  
+  --accent-primary: #60a5fa;
+  --accent-hover: #3b82f6;
+  --accent-light: #1e3a5f;
+  
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  
+  --border-color: #334155;
+  --shadow: rgba(0, 0, 0, 0.3);
+  
+  --priority-high: #f87171;
+  --priority-medium: #fbbf24;
+  --priority-low: #34d399;
+}
+ul, li {
+    list-style: none;
+}
+body {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+button {
+    background-color: var(--bg-primary);
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 1.1rem;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 0.3rem;
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+}
+button:hover {
+    background-color: var(--accent-hover);
+}
+#content {
+    background-color: var(--bg-primary);
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+#sidebar {
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+}
+#sidebar div {
+    margin: 1rem 1.2rem 0.5rem 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+#sidebar div h2 {
+    align-self: center;
+    margin-left: 0.6rem;
+    margin-top: 0.1rem;
+    font-style: italic;
+}
+#picture {
+    height: 50px;
+    width: 50px;
+}
+.flex {
+    display: flex;
+}
+input[type=text]{
+    border: none;
+    height: 2rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--bg-primary);
+    padding-left: 0.4rem;
+}
+#searchbar {  
+    font-size: 1.1rem;
+    padding-top: 0.1rem;
+     padding-left: 2.3rem;
+}
+#search-icon {
+    height: 26px;
+    width: 26px;
+    position: relative;
+    top: -29px;
+    left: 5px;
+}
+#hero {
+    border-bottom: 1px solid var(--border-color);
+}
+.button-div {
+    position: fixed;
+    background-color: var(--accent-primary);
+    min-height: 2.7rem;
+    max-height: 40px;
+    width: 7rem;
+    color: var(--bg-primary);
+    transition: 0.5s ease-in;
+    font-size: 1.3rem;
+    margin: 1rem 1rem 0 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    cursor: default;
+    overflow-y: hidden;
+}
+.expand {
+    min-height: 10rem;
+}
+.show-content {
+    display: block;
+}
+#create > p {
+    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+#create ul li{
+    margin-top: 0.3rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+}
+#create:hover {
+    max-height: 7rem;
+}
+#card {
+    background-color: var(--bg-secondary);
+    margin-top: 5rem;
+    padding: 1rem;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+}
+#card input {
+    width: 60%;
+    margin: 1rem 0 0 0;
+    font-size: 1.2rem;
+}

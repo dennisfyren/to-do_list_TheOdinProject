@@ -1,10 +1,14 @@
-console.log("Hello World!");
-import { compareAsc, format } from "date-fns";
 
-let year = 2026;
-let month = 3
-let day = 14
+import "./homepage.js";
+import "./styles.css";
+import "./projects.js";
 
-let date = format(new Date(year, month -1, day), "dd/MM-yy");
+// import { compareAsc, format } from "date-fns";
 
-console.log(date);
+// let year = 2026;
+// let month = 3
+// let day = 14
+
+// let date = format(new Date(year, month -1, day), "dd/MM-yy");
+
+// console.log(date);
