@@ -1,5 +1,6 @@
 import { createNew } from "./createButton.js";
 import { updateDOM } from "./updateDOM.js";
+import { projects } from "./storage.js";
 
 export const project = document.createElement("li");
 project.id = "create-project";
@@ -38,6 +39,10 @@ export const showNavbar = () => {
     });
     
     task.addEventListener("click", () => {
+        if (projects.length === 0){
+            alert("Please create a project before adding a task.");
+            return;
+        }
         const params = ["Title", "Description", "Priority", "Due Date", "Project"];
         createNew("Task", params);
         updateDOM.hideContent("nav", "hero");

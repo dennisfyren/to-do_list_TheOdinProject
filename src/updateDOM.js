@@ -34,8 +34,10 @@ export const updateDOM = {
         }
     },
     showContent(firstElement, secondElement, thirdElement){
+        if (firstElement){
         const selection = document.querySelector(`#${firstElement}`);
         selection.classList.remove("hide");
+        }
         if (secondElement) {
             const selection = document.querySelector(`#${secondElement}`);
             selection.classList.remove("hide");
@@ -44,5 +46,10 @@ export const updateDOM = {
             const selection = document.querySelector(`#${thirdElementElement}`);
             selection.classList.remove("hide");
         }
+    },
+    refresh(){
+        this.clearContent();
+        this.displayProjects(); 
+        this.showContent("nav", "hero");
     }
 }
