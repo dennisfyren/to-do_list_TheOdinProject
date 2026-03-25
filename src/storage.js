@@ -19,6 +19,14 @@ export const deleteProject = (itemUUID) => {
     getItems();
     updateDOM.refresh();
 }
+export const deleteTask = (taskUUID) => {
+    const projectIndex = projects.findIndex((obj) => obj.active === true);
+    const taskIndex = projects[projectIndex].tasks.findIndex((task) => task.uuid === taskUUID);
+    projects[projectIndex].tasks.splice(taskIndex, 1);
+    setItems();
+    getItems();
+    updateDOM.refresh();
+}
 export const setActive = (itemUUID) => {
     const objIndex = projects.findIndex((obj) => obj.uuid === itemUUID);
     projects.forEach((item) => {

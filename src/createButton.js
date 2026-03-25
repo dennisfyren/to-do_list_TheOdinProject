@@ -6,7 +6,7 @@ import { projects, setItems, setActive } from "./storage.js";
 const contentBox = document.createElement("div");
 
 export const createNew = (type, input) => {
-    const content = document.querySelector("#main-content");
+    const content = document.querySelector("#body");
     clearBox();
 
     const header = document.createElement("h2");
@@ -18,7 +18,7 @@ export const createNew = (type, input) => {
     contentBox.classList.add("card");
     content.appendChild(contentBox);
     contentBox.appendChild(header);
-    header.textContent = `New ${type}`
+    header.textContent = `New ${type}`;
     contentBox.appendChild(close);
     close.textContent = "X";
     input.forEach((element) => {
@@ -39,6 +39,17 @@ export const createNew = (type, input) => {
             picker.type = "date";
             picker.id = "dueDate";
             contentBox.appendChild(picker);
+            return;
+        }
+        if (element === "Priority"){
+            const select = document.createElement("select");
+            select.id = "priority";
+            for (let i = 1; i < 4; i++){
+                const option = document.createElement("option");
+                option.textContent = `${i}`;
+                select.appendChild(option);
+            } 
+            contentBox.appendChild(select);
             return;
         }
         const input = document.createElement("input");
@@ -69,7 +80,7 @@ export const createNew = (type, input) => {
             const title = document.querySelector("#title").value;
             const description = document.querySelector("#description").value;
             const priority = document.querySelector("#priority").value;
-            const dueDate = document.querySelector("#dueDate");
+            const dueDate = document.querySelector("#dueDate").value;
             const project = document.querySelector("#project").value;
 
             const item = new Task(title, description, priority, dueDate, project);
@@ -78,10 +89,13 @@ export const createNew = (type, input) => {
             projects[objAtIndex].tasks.push(item);
         }
         setItems();
+        body.removeChild(body.lastChild);
         updateDOM.refresh();
     })
 
     close.addEventListener("click", () => {
+        const body = document.querySelector("#body");
+        body.removeChild(body.lastChild);
         updateDOM.refresh();
     });
     function clearBox(){

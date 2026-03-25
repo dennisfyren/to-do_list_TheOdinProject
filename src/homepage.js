@@ -10,4 +10,5 @@ updateDOM.sidebar();
 updateDOM.navbar();
 
 updateDOM.displayProjects();
-
+updateDOM.displayTasks();
+updateDOM.displayActive();

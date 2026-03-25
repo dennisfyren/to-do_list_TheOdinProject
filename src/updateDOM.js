@@ -1,6 +1,6 @@
 import { showSidebar } from "./sidebar.js";
 import { showNavbar } from "./nav.js";
-import { displayProjects, showContent } from "./content.js";
+import { displayProjects, showContent, displayTasks, displayActive } from "./content.js";
 
 export const updateDOM = {
     content(){
@@ -13,7 +13,7 @@ export const updateDOM = {
         showNavbar();
     },
     clearContent(){
-        const content = document.querySelector("#main-content");
+        const content = document.querySelector("#content");
         while (content.firstChild) {
             content.removeChild(content.firstChild);
         }
@@ -21,35 +21,27 @@ export const updateDOM = {
     displayProjects(){
         displayProjects();
     },
-    hideContent(firstElement, secondElement, thirdElement){
-        const selection = document.querySelector(`#${firstElement}`);
-        selection.classList.add("hide");
-        if (secondElement) {
-            const selection = document.querySelector(`#${secondElement}`);
-            selection.classList.add("hide");
-        }
-        if (thirdElement) {
-            const selection = document.querySelector(`#${thirdElementElement}`);
-            selection.classList.add("hide");
-        }
+    displayTasks(){
+        displayTasks()
     },
-    showContent(firstElement, secondElement, thirdElement){
-        if (firstElement){
-        const selection = document.querySelector(`#${firstElement}`);
-        selection.classList.remove("hide");
-        }
-        if (secondElement) {
-            const selection = document.querySelector(`#${secondElement}`);
-            selection.classList.remove("hide");
-        }
-        if (thirdElement) {
-            const selection = document.querySelector(`#${thirdElementElement}`);
-            selection.classList.remove("hide");
-        }
+    displayActive(){
+        displayActive();
+    },
+    hideContent(){
+        const content = document.querySelector("#content")
+        content.classList.add("hide");
+    },
+    showContent(){
+        const content = document.querySelector("#content")
+        content.classList.remove("hide");
     },
     refresh(){
         this.clearContent();
+        this.content();
+        this.navbar();
         this.displayProjects(); 
-        this.showContent("nav", "hero");
+        this.displayTasks();
+        this.showContent();
+        this.displayActive();
     }
 }

@@ -6,10 +6,9 @@
 }
 
 :root {
-  /* Light Mode Colors */
   --bg-primary: #ffffff;
   --bg-secondary: #ececec;
-  --bg-tertiary: #f1f5f9;
+  --bg-tertiary: #98b4ca;
   
   --text-primary: #1e293b;
   --text-secondary: #64748b;
@@ -27,7 +26,7 @@
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(29, 29, 29, 0.356);
   
-  --priority-high: #ef4444;
+  --priority-high: #f02121;
   --priority-medium: #f59e0b;
   --priority-low: #10b981;
 
@@ -60,7 +59,11 @@ button:hover {
 }
 .content {
     display: grid;
-    grid-template-rows: 1fr 40px 2fr;
+    grid-template-rows: 40px 1fr;
+}
+.main-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
 }
 #sidebar {
     border-right: 1px solid var(--border-color);
@@ -213,16 +216,21 @@ input[type=text]:focus {
     font-weight: 900;
     font-size: 1.1rem;
 }
-.projects button {
+.projects button, .display-window div button {
     height: 1.5rem;
     margin-right: 1rem;
-    
-}
-.projects button:last-of-type {
     background-color: var(--danger);
+}
+.display-window div button{
+    background-color: var(--accent-primary);
+    width: auto;
+    padding: 0 1rem 0 1rem;
 }
 .projects button:last-of-type:hover {
     background-color: rgb(224, 3, 3);
+}
+.display-window div button:hover {
+    background-color: var(--accent-hover);
 }
 .flex-column {
     display: flex;
@@ -235,4 +243,20 @@ input[type=text]:focus {
     flex-direction: column;
     align-items: flex-start;
     width: 200px;
+}
+.selected {
+    background-color: var(--bg-tertiary);
+}
+.display-window {
+    padding: 1rem;
+}
+.display-window div {
+    padding: 1rem;
+}
+.display-window div p:first-of-type {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.prio-1 p:first-of-type {
+    color: var(--priority-high);
 }

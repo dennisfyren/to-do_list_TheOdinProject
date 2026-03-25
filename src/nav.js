@@ -6,10 +6,8 @@ export const project = document.createElement("li");
 project.id = "create-project";
 export const task = document.createElement("li");
 task.id = "create-task";
-const body = document.querySelector("#body");
 
 export const showNavbar = () => {
-
     function createButton(){
         const navbar = document.querySelector("#nav");
         const create = document.createElement("div");
@@ -29,13 +27,11 @@ export const showNavbar = () => {
         ul.appendChild(project);
         ul.appendChild(task);
     }
-
     createButton();
-
     project.addEventListener("click", () => {
         const params = ["Title", "Description"];
         createNew("Project", params);
-        updateDOM.hideContent("nav", "hero");
+        updateDOM.hideContent("nav", "hero", "container");
     });
     
     task.addEventListener("click", () => {
@@ -45,7 +41,7 @@ export const showNavbar = () => {
         }
         const params = ["Title", "Description", "Priority", "Due Date", "Project"];
         createNew("Task", params);
-        updateDOM.hideContent("nav", "hero");
+        updateDOM.hideContent("nav", "hero", "container");
     })
     
 }
